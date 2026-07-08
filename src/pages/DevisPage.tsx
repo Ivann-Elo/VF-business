@@ -4,7 +4,6 @@ import { toast } from "sonner";
 import { W } from "../components/WireframeUI";
 import { Breadcrumb } from "../components/layout/Breadcrumb";
 import { SecondaryHero } from "../components/layout/SecondaryHero";
-import type { Cols } from "../types";
 
 const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
@@ -50,7 +49,7 @@ function ConfirmModal({ name, onClose }: { name: string; onClose: () => void }) 
           backgroundImage: "radial-gradient(ellipse at top, rgba(201,169,97,0.4) 0%, transparent 65%)"
         }} />
 
-        <div className="relative p-6 @lg:p-8 flex flex-col items-center text-center gap-5">
+        <div className="relative p-6 md:p-8 flex flex-col items-center text-center gap-5">
 
           {/* Icône succès */}
           <div className="w-16 h-16 border border-gold flex items-center justify-center">
@@ -93,8 +92,7 @@ function ConfirmModal({ name, onClose }: { name: string; onClose: () => void }) 
 
 const todayISO = new Date().toISOString().slice(0, 10);
 
-export function DevisPage({ cols }: { cols: Cols }) {
-  const twoCol = cols === "3";
+export function DevisPage() {
   const [trajet, setTrajet]     = useState(0);
   const [fields, setFields]     = useState<Fields>(EMPTY);
   const [hasChildren, setHasChildren] = useState(false);
@@ -165,13 +163,13 @@ export function DevisPage({ cols }: { cols: Cols }) {
         subtitle="Réponse personnalisée en moins de 12 heures · Sans engagement"
       />
 
-      <section className="px-4 @lg:px-10 py-16">
+      <section className="px-4 md:px-10 py-16">
         <form onSubmit={handleSubmit}>
-          <div className={`grid ${twoCol ? "grid-cols-5" : "grid-cols-1"} gap-8`}>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
             {/* Formulaire */}
-            <div className={twoCol ? "col-span-3" : ""}>
-              <div className="border border-gold/20 bg-noir-card p-4 @lg:p-10">
+            <div className="lg:col-span-3">
+              <div className="border border-gold/20 bg-noir-card p-4 md:p-10">
 
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-gold">01</span>
@@ -184,13 +182,13 @@ export function DevisPage({ cols }: { cols: Cols }) {
                     value={fields.pickup} onChange={set("pickup")} />
                   <W.Input label="Destination *" placeholder="Ex : Hôtel Negresco, Nice"
                     value={fields.destination} onChange={set("destination")} />
-                  <div className="flex gap-3 @lg:gap-4">
+                  <div className="flex gap-3 md:gap-4">
                     <W.Input label="Date" type="date" min={todayISO} full={false}
                       value={fields.date} onChange={set("date")} />
                     <W.Input label="Heure" type="time" full={false}
                       value={fields.time} onChange={set("time")} />
                   </div>
-                  <div className="flex gap-3 @lg:gap-4">
+                  <div className="flex gap-3 md:gap-4">
                     <W.Input label="Passagers" placeholder="1 — 4" full={false}
                       value={fields.passengers} onChange={set("passengers")} />
                     <W.Input label="Bagages" placeholder="0 — 4" full={false}
@@ -204,7 +202,7 @@ export function DevisPage({ cols }: { cols: Cols }) {
                         <label
                           key={o}
                           onClick={() => setTrajet(i)}
-                          className={`flex-1 cursor-pointer border px-3 @lg:px-5 py-3.5 @lg:py-4 text-xs uppercase tracking-[0.15em] flex items-center gap-2 @lg:gap-3 transition-all ${
+                          className={`flex-1 cursor-pointer border px-3 md:px-5 py-3.5 md:py-4 text-xs uppercase tracking-[0.15em] flex items-center gap-2 md:gap-3 transition-all ${
                             i === trajet
                               ? "border-gold bg-gold/10 text-gold"
                               : "border-neutral-800 text-neutral-400 hover:border-gold/40"
@@ -229,7 +227,7 @@ export function DevisPage({ cols }: { cols: Cols }) {
                         <label
                           key={o}
                           onClick={() => setHasChildren(i === 1)}
-                          className={`flex-1 cursor-pointer border px-3 @lg:px-5 py-3.5 @lg:py-4 text-xs uppercase tracking-[0.15em] flex items-center gap-2 @lg:gap-3 transition-all ${
+                          className={`flex-1 cursor-pointer border px-3 md:px-5 py-3.5 md:py-4 text-xs uppercase tracking-[0.15em] flex items-center gap-2 md:gap-3 transition-all ${
                             (i === 1) === hasChildren
                               ? "border-gold bg-gold/10 text-gold"
                               : "border-neutral-800 text-neutral-400 hover:border-gold/40"
@@ -255,7 +253,7 @@ export function DevisPage({ cols }: { cols: Cols }) {
                         <label
                           key={o}
                           onClick={() => setHasPets(i === 1)}
-                          className={`flex-1 cursor-pointer border px-3 @lg:px-5 py-3.5 @lg:py-4 text-xs uppercase tracking-[0.15em] flex items-center gap-2 @lg:gap-3 transition-all ${
+                          className={`flex-1 cursor-pointer border px-3 md:px-5 py-3.5 md:py-4 text-xs uppercase tracking-[0.15em] flex items-center gap-2 md:gap-3 transition-all ${
                             (i === 1) === hasPets
                               ? "border-gold bg-gold/10 text-gold"
                               : "border-neutral-800 text-neutral-400 hover:border-gold/40"
@@ -274,7 +272,7 @@ export function DevisPage({ cols }: { cols: Cols }) {
                             <label
                               key={size}
                               onClick={() => togglePetSize(size)}
-                              className={`flex-1 cursor-pointer border px-2 @lg:px-4 py-2.5 @lg:py-3 text-[11px] @lg:text-xs uppercase tracking-[0.1em] @lg:tracking-[0.15em] flex items-center justify-center gap-1.5 @lg:gap-2 transition-all ${
+                              className={`flex-1 cursor-pointer border px-2 md:px-4 py-2.5 md:py-3 text-[11px] md:text-xs uppercase tracking-[0.1em] md:tracking-[0.15em] flex items-center justify-center gap-1.5 md:gap-2 transition-all ${
                                 petSizes.includes(size)
                                   ? "border-gold bg-gold/10 text-gold"
                                   : "border-neutral-800 text-neutral-400 hover:border-gold/40"
@@ -301,7 +299,7 @@ export function DevisPage({ cols }: { cols: Cols }) {
                 </div>
 
                 <div className="space-y-5">
-                  <div className="flex gap-3 @lg:gap-4">
+                  <div className="flex gap-3 md:gap-4">
                     <W.Input label="Prénom" placeholder="Jean" full={false}
                       value={fields.firstName} onChange={set("firstName")} />
                     <W.Input label="Nom" placeholder="Dupont" full={false}
@@ -330,8 +328,8 @@ export function DevisPage({ cols }: { cols: Cols }) {
             </div>
 
             {/* Sidebar */}
-            <aside className={twoCol ? "col-span-2 space-y-5" : "space-y-5"}>
-              <div className="border border-gold/20 bg-noir-card p-4 @lg:p-6">
+            <aside className="lg:col-span-2 space-y-5">
+              <div className="border border-gold/20 bg-noir-card p-4 md:p-6">
                 <div className="text-[11px] uppercase tracking-[0.3em] text-gold mb-4">Contact direct</div>
                 <div className="space-y-3">
                   <a href="tel:+33766393975"
@@ -349,7 +347,7 @@ export function DevisPage({ cols }: { cols: Cols }) {
                 </div>
               </div>
 
-              <div className="border border-gold/20 bg-noir-card p-4 @lg:p-6">
+              <div className="border border-gold/20 bg-noir-card p-4 md:p-6">
                 <div className="text-[11px] uppercase tracking-[0.3em] text-gold mb-4">Informations attendues</div>
                 <ul className="space-y-3">
                   {expects.map((e) => (
@@ -361,7 +359,7 @@ export function DevisPage({ cols }: { cols: Cols }) {
                 </ul>
               </div>
 
-              <div className="relative border border-gold/30 p-5 @lg:p-8 text-center overflow-hidden bg-gradient-to-br from-noir-card to-noir">
+              <div className="relative border border-gold/30 p-5 md:p-8 text-center overflow-hidden bg-gradient-to-br from-noir-card to-noir">
                 <div className="absolute inset-0 opacity-30 pointer-events-none" style={{
                   backgroundImage: "radial-gradient(circle at center, rgba(201,169,97,0.3) 0%, transparent 70%)"
                 }} />

@@ -31,15 +31,15 @@ export function MentionsLegalesPage() {
       <Breadcrumb items={["Accueil", "Mentions légales"]} />
       <SecondaryHero title="Mentions légales" subtitle="Informations légales relatives au site VF Business" />
 
-      <section className="px-4 @lg:px-10 py-16 max-w-4xl mx-auto space-y-16">
+      <section className="px-4 md:px-10 py-16 max-w-4xl mx-auto space-y-16">
 
         {sections.map((s) => (
           <div key={s.label}>
             <W.SectionLabel>{s.label}</W.SectionLabel>
-            <h2 className="font-serif text-2xl @lg:text-3xl text-white mb-8">{s.title}</h2>
+            <h2 className="font-serif text-2xl md:text-3xl text-white mb-8">{s.title}</h2>
             <div className="border border-gold/20 bg-noir-card">
               {s.content.map(([k, v], i) => (
-                <div key={k} className={`flex flex-col @lg:flex-row @lg:justify-between px-4 @lg:px-6 py-4 gap-1 ${i < s.content.length - 1 ? "border-b border-neutral-800" : ""}`}>
+                <div key={k} className={`flex flex-col md:flex-row md:justify-between px-4 md:px-6 py-4 gap-1 ${i < s.content.length - 1 ? "border-b border-neutral-800" : ""}`}>
                   <span className="text-[11px] uppercase tracking-[0.2em] text-gold/80 shrink-0">{k}</span>
                   <span className="text-sm text-neutral-300">{v}</span>
                 </div>
@@ -50,7 +50,7 @@ export function MentionsLegalesPage() {
 
         <div>
           <W.SectionLabel>Propriété intellectuelle</W.SectionLabel>
-          <h2 className="font-serif text-2xl @lg:text-3xl text-white mb-6">Droits & contenus</h2>
+          <h2 className="font-serif text-2xl md:text-3xl text-white mb-6">Droits & contenus</h2>
           <div className="space-y-4 text-sm text-neutral-400 leading-relaxed">
             <p>
               L'ensemble des éléments constituant ce site (textes, images, graphismes, logo, icônes, sons, logiciels…)
@@ -66,7 +66,7 @@ export function MentionsLegalesPage() {
 
         <div>
           <W.SectionLabel>Responsabilité</W.SectionLabel>
-          <h2 className="font-serif text-2xl @lg:text-3xl text-white mb-6">Limitation de responsabilité</h2>
+          <h2 className="font-serif text-2xl md:text-3xl text-white mb-6">Limitation de responsabilité</h2>
           <div className="space-y-4 text-sm text-neutral-400 leading-relaxed">
             <p>
               VF Business s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site.
@@ -82,7 +82,7 @@ export function MentionsLegalesPage() {
 
         <div>
           <W.SectionLabel>Droit applicable</W.SectionLabel>
-          <h2 className="font-serif text-2xl @lg:text-3xl text-white mb-6">Juridiction</h2>
+          <h2 className="font-serif text-2xl md:text-3xl text-white mb-6">Juridiction</h2>
           <p className="text-sm text-neutral-400 leading-relaxed">
             Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français
             seront seuls compétents. Pour toute question relative à ces mentions légales, vous pouvez nous contacter

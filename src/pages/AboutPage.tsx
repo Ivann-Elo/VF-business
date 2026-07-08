@@ -2,10 +2,7 @@ import { W } from "../components/WireframeUI";
 import { Breadcrumb } from "../components/layout/Breadcrumb";
 import { SecondaryHero } from "../components/layout/SecondaryHero";
 import { CtaBanner } from "../components/layout/CtaBanner";
-import type { Page, Cols } from "../types";
-
-const gridCls = (c: Cols) =>
-  c === "3" ? "grid-cols-3" : c === "2" ? "grid-cols-2" : "grid-cols-1";
+import type { Page } from "../types";
 
 const values = [
   { i: "◈", t: "Discrétion", d: "Confidentialité absolue de vos déplacements et de vos informations" },
@@ -19,22 +16,22 @@ const contacts = [
   { i: "✉", t: "Email", d: "contact@vtc-vfbusiness.fr" },
 ];
 
-export function AboutPage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => void }) {
+export function AboutPage({ onNav }: { onNav: (p: Page) => void }) {
   return (
     <main className="bg-noir">
       <Breadcrumb items={["Accueil", "À propos"]} />
       <SecondaryHero title="À propos de VF Business" subtitle="Une exigence — faire de chaque trajet une expérience inoubliable" />
 
       {/* Histoire */}
-      <section className="px-4 @lg:px-10 py-16">
-        <div className={`grid ${cols === "3" ? "grid-cols-2" : "grid-cols-1"} gap-12 items-center`}>
+      <section className="px-4 md:px-10 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative w-full aspect-[3/4] overflow-hidden">
             <img src="/images/chauffeurPrive.jpeg" alt="Notre fondateur" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent" />
           </div>
           <div>
             <W.SectionLabel>Notre histoire</W.SectionLabel>
-            <h2 className="font-serif text-3xl @lg:text-4xl text-white mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl text-white mb-6">
               L'excellence <span className="gold-text-gradient italic">au service</span> de l'exigence
             </h2>
             <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
@@ -55,14 +52,14 @@ export function AboutPage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => voi
       </section>
 
       {/* Valeurs */}
-      <section className="px-4 @lg:px-10 py-16 bg-noir-soft border-y border-gold/10">
+      <section className="px-4 md:px-10 py-16 bg-noir-soft border-y border-gold/10">
         <div className="text-center mb-12">
           <W.SectionLabel>Nos valeurs</W.SectionLabel>
-          <h2 className="font-serif text-3xl @lg:text-4xl text-white">Les piliers de notre service</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-white">Les piliers de notre service</h2>
         </div>
-        <div className={`grid ${gridCls(cols)} gap-6`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {values.map((v) => (
-            <div key={v.t} className="bg-noir-card border border-neutral-800 hover-gold-lift p-6 @lg:p-10 text-center">
+            <div key={v.t} className="bg-noir-card border border-neutral-800 hover-gold-lift p-6 md:p-10 text-center">
               <div className="text-4xl text-gold mb-4">{v.i}</div>
               <h3 className="font-serif text-2xl text-white mb-3">{v.t}</h3>
               <div className="gold-divider w-12 mx-auto mb-4" />
@@ -73,7 +70,7 @@ export function AboutPage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => voi
       </section>
 
       {/* Zone */}
-      <section className="px-4 @lg:px-10 py-16">
+      <section className="px-4 md:px-10 py-16">
         <div className="text-center mb-10">
           <W.SectionLabel>Zone d'intervention</W.SectionLabel>
           <h2 className="font-serif text-3xl text-white mb-3">Côte d'Azur & au-delà</h2>
@@ -87,14 +84,14 @@ export function AboutPage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => voi
       </section>
 
       {/* Contact */}
-      <section className="px-4 @lg:px-10 py-16 bg-noir-soft border-t border-gold/10">
+      <section className="px-4 md:px-10 py-16 bg-noir-soft border-t border-gold/10">
         <div className="text-center mb-12">
           <W.SectionLabel>Nous contacter</W.SectionLabel>
           <h2 className="font-serif text-3xl text-white">Restons en contact</h2>
         </div>
-        <div className={`grid ${gridCls(cols)} gap-6 max-w-4xl mx-auto`}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {contacts.map((c) => (
-            <div key={c.t} className="bg-noir-card border border-neutral-800 hover-gold-lift p-5 @lg:p-8 text-center">
+            <div key={c.t} className="bg-noir-card border border-neutral-800 hover-gold-lift p-5 md:p-8 text-center">
               <div className="text-3xl text-gold mb-4">{c.i}</div>
               <div className="text-xs uppercase tracking-[0.25em] text-white mb-2">{c.t}</div>
               <div className="text-sm text-neutral-400">{c.d}</div>

@@ -1,12 +1,9 @@
 import { W } from "../components/WireframeUI";
 import { CtaBanner } from "../components/layout/CtaBanner";
-import type { Page, Cols } from "../types";
-
-const gridCls = (c: Cols) =>
-  c === "3" ? "grid-cols-3" : c === "2" ? "grid-cols-2" : "grid-cols-1";
+import type { Page } from "../types";
 
 const Card = ({ children, className = "" }: any) => (
-  <div className={`bg-noir-card border border-neutral-800 hover-gold-lift p-5 @lg:p-6 ${className}`}>{children}</div>
+  <div className={`bg-noir-card border border-neutral-800 hover-gold-lift p-5 md:p-6 ${className}`}>{children}</div>
 );
 
 const reassur = [
@@ -31,7 +28,7 @@ const why = [
   { i: "🚗", t: "Le sud est à vous", d: "Parcourez le sud en toute sérénité" },
 ];
 
-export function HomePage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => void }) {
+export function HomePage({ onNav }: { onNav: (p: Page) => void }) {
   return (
     <main className="bg-noir">
       {/* Hero */}
@@ -43,25 +40,25 @@ export function HomePage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => void
           <div className="absolute inset-0 opacity-30" style={{
             backgroundImage: "linear-gradient(135deg, transparent 0%, rgba(201,169,97,0.1) 100%)"
           }} />
-          <div className="absolute right-0 bottom-0 w-full @lg:w-2/3 h-2/3 opacity-20" style={{
+          <div className="absolute right-0 bottom-0 w-full md:w-2/3 h-2/3 opacity-20" style={{
             backgroundImage: "radial-gradient(ellipse at center, rgba(201,169,97,0.4) 0%, transparent 60%)"
           }} />
-          <div className="absolute inset-0 flex items-center px-5 @lg:px-16">
+          <div className="absolute inset-0 flex items-center px-5 md:px-16">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-px bg-gold" />
                 <span className="text-[11px] uppercase tracking-[0.4em] text-gold">Chauffeur Privé </span>
                 <div className="w-12 h-px bg-gold" />
               </div>
-              <h1 className="font-serif text-4xl @lg:text-6xl text-white mb-6 leading-tight">
+              <h1 className="font-serif text-4xl md:text-6xl text-white mb-6 leading-tight">
                 Votre chauffeur privé<br />
                 <span className="gold-text-gradient italic">sur la Côte d'Azur</span>
               </h1>
-              <p className="text-base @lg:text-lg text-neutral-300 mb-8 leading-relaxed max-w-xl">
+              <p className="text-base md:text-lg text-neutral-300 mb-8 leading-relaxed max-w-xl">
                 Transferts, mise à disposition et déplacements <strong>Bouches-du-Rhône, PACA et Alpes-Maritimes</strong>.
                 Une prestation d'exception pour une clientèle exigeante.
               </p>
-              <div className="flex flex-col @lg:flex-row gap-3">
+              <div className="flex flex-col md:flex-row gap-3">
                 <button onClick={() => onNav("devis")} className="btn-gold px-8 py-4 text-xs uppercase">
                   Demander un devis
                 </button>
@@ -75,8 +72,8 @@ export function HomePage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => void
       </section>
 
       {/* Réassurance */}
-      <section className="px-4 @lg:px-10 py-16 bg-noir border-b border-gold/10">
-        <div className={`grid ${cols === "1" ? "grid-cols-2" : cols === "2" ? "grid-cols-2" : "grid-cols-4"} gap-6`}>
+      <section className="px-4 md:px-10 py-16 bg-noir border-b border-gold/10">
+        <div className={`grid grid-cols-2 lg:grid-cols-4 gap-6`}>
           {reassur.map((r) => (
             <div key={r.t} className="text-center group">
               <div className="w-16 h-16 mx-auto mb-4 border border-gold/40 group-hover:border-gold flex items-center justify-center transition-colors">
@@ -90,13 +87,13 @@ export function HomePage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => void
       </section>
 
       {/* Aperçu services */}
-      <section className="px-4 @lg:px-10 py-20 bg-noir-soft">
+      <section className="px-4 md:px-10 py-20 bg-noir-soft">
         <div className="text-center mb-12">
           <W.SectionLabel>Nos prestations</W.SectionLabel>
-          <h2 className="font-serif text-3xl @lg:text-4xl text-white">Services d'exception</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-white">Services d'exception</h2>
           <p className="text-sm text-neutral-400 mt-3">Une réponse adaptée à chacun de vos besoins</p>
         </div>
-        <div className={`grid ${gridCls(cols)} gap-6`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`}>
           {services.map((s) => (
             <Card key={s.t}>
               <div className="text-3xl text-gold mb-4">{s.icon}</div>
@@ -117,12 +114,12 @@ export function HomePage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => void
       </section>
 
       {/* Véhicule */}
-      <section className="px-4 @lg:px-10 py-20 bg-noir">
-        <div className={`grid ${cols === "3" ? "grid-cols-2" : "grid-cols-1"} gap-12 items-center`}>
+      <section className="px-4 md:px-10 py-20 bg-noir">
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center`}>
           <W.Img src="/images/interieur1.jpg" className="w-full aspect-[4/3]" label="BYD Seal U" />
           <div>
             <W.SectionLabel>Notre véhicule</W.SectionLabel>
-            <h2 className="font-serif text-3xl @lg:text-4xl text-white mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl text-white mb-4">
               BYD <span className="gold-text-gradient italic">Seal U</span>
             </h2>
             <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
@@ -144,12 +141,12 @@ export function HomePage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => void
       </section>
 
       {/* Pourquoi nous */}
-      <section className="px-4 @lg:px-10 py-20 bg-noir-soft">
+      <section className="px-4 md:px-10 py-20 bg-noir-soft">
         <div className="text-center mb-12">
           <W.SectionLabel>Pourquoi nous choisir</W.SectionLabel>
-          <h2 className="font-serif text-3xl @lg:text-4xl text-white">L'excellence VF Business</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-white">L'excellence VF Business</h2>
         </div>
-        <div className={`grid ${gridCls(cols)} gap-8`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8`}>
           {why.map((w) => (
             <div key={w.t} className="text-center px-4">
               <div className="text-4xl text-gold mb-4">{w.i}</div>
@@ -162,10 +159,10 @@ export function HomePage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => void
       </section>
 
       {/* Zones */}
-      <section className="px-4 @lg:px-10 py-16 bg-noir border-y border-gold/20">
+      <section className="px-4 md:px-10 py-16 bg-noir border-y border-gold/20">
         <div className="text-center mb-8">
           <W.SectionLabel>Zone d'intervention</W.SectionLabel>
-          <h3 className="font-serif text-2xl @lg:text-3xl text-white">Toute la Côte d'Azur & au-delà</h3>
+          <h3 className="font-serif text-2xl md:text-3xl text-white">Toute la Côte d'Azur & au-delà</h3>
         </div>
         <div className="flex flex-wrap gap-3 justify-center max-w-3xl mx-auto">
           {["Aéroport Nice Côte d'Azur", "Aéroport Marseille Provence", "Aéroport Toulon-Hyères", "Gares SNCF", "Monaco", "Cannes", "Saint-Tropez"].map((t) => (

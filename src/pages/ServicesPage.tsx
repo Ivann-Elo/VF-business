@@ -1,13 +1,10 @@
 import { Breadcrumb } from "../components/layout/Breadcrumb";
 import { SecondaryHero } from "../components/layout/SecondaryHero";
 import { CtaBanner } from "../components/layout/CtaBanner";
-import type { Page, Cols } from "../types";
-
-const gridCls = (c: Cols) =>
-  c === "3" ? "grid-cols-3" : c === "2" ? "grid-cols-2" : "grid-cols-1";
+import type { Page } from "../types";
 
 const Card = ({ children, className = "" }: any) => (
-  <div className={`bg-noir-card border border-neutral-800 hover-gold-lift p-5 @lg:p-6 ${className}`}>{children}</div>
+  <div className={`bg-noir-card border border-neutral-800 hover-gold-lift p-5 md:p-6 ${className}`}>{children}</div>
 );
 
 const services = [
@@ -21,13 +18,13 @@ const services = [
   { i: "◈", t: "Livraison & récupération colis/effets personnels", d: "Coursier privé pour vos plis urgents, confidentiels et précieux. Acheminement de bagages et effets personnels à votre destination." },
 ];
 
-export function ServicesPage({ cols, onNav }: { cols: Cols; onNav: (p: Page) => void }) {
+export function ServicesPage({ onNav }: { onNav: (p: Page) => void }) {
   return (
     <main className="bg-noir">
       <Breadcrumb items={["Accueil", "Services"]} />
       <SecondaryHero title="Nos services" subtitle="Des prestations d'exception pour répondre à toutes vos exigences de mobilité" />
-      <section className="px-4 @lg:px-10 py-16">
-        <div className={`grid ${gridCls(cols)} gap-6`}>
+      <section className="px-4 md:px-10 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
             <Card key={s.t} className="flex flex-col">
               <div className="text-3xl text-gold mb-4">{s.i}</div>
