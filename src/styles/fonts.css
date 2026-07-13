@@ -5,10 +5,10 @@
 body { font-family: 'Inter', system-ui, sans-serif; }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #e4c97a 0%, #c9a961 50%, #a8893f 100%);
+  background: linear-gradient(135deg, #f1d98b 0%, #d4af37 55%, #9c7a29 100%);
 }
 .gold-text-gradient {
-  background: linear-gradient(135deg, #e4c97a 0%, #c9a961 50%, #a8893f 100%);
+  background: linear-gradient(135deg, #f1d98b 0%, #d4af37 55%, #9c7a29 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -16,26 +16,27 @@ body { font-family: 'Inter', system-ui, sans-serif; }
 }
 
 .btn-gold {
-  background: linear-gradient(135deg, #e4c97a 0%, #c9a961 100%);
-  color: #0a0a0a;
-  border: 1px solid #c9a961;
+  background: linear-gradient(135deg, #f1d98b 0%, #d4af37 100%);
+  color: #1a1400;
+  border: 1px solid #9c7a29;
   transition: all 0.3s ease;
   letter-spacing: 0.05em;
 }
 .btn-gold:hover {
-  background: linear-gradient(135deg, #c9a961 0%, #a8893f 100%);
-  box-shadow: 0 8px 24px rgba(201, 169, 97, 0.3);
+  background: linear-gradient(135deg, #f7e6ab 0%, #9c7a29 100%);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
 }
 .btn-outline-gold {
   border: 1px solid var(--color-gold);
-  color: var(--color-gold);
+  color: var(--color-gold-light);
   background: transparent;
   transition: all 0.3s ease;
   letter-spacing: 0.05em;
 }
 .btn-outline-gold:hover {
-  background: var(--color-gold);
-  color: #0a0a0a;
+  background: linear-gradient(135deg, #f1d98b 0%, #d4af37 100%);
+  color: #1a1400;
+  border-color: var(--color-gold-light);
 }
 
 .gold-divider {
@@ -49,5 +50,5 @@ body { font-family: 'Inter', system-ui, sans-serif; }
 .hover-gold-lift:hover {
   transform: translateY(-4px);
   border-color: var(--color-gold);
-  box-shadow: 0 12px 32px rgba(201, 169, 97, 0.15);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.18);
 }

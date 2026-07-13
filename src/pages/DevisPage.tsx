@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { W } from "../components/WireframeUI";
 import { Breadcrumb } from "../components/layout/Breadcrumb";
 import { SecondaryHero } from "../components/layout/SecondaryHero";
+import type { Page } from "../types";
 
 const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
@@ -39,10 +40,17 @@ const EMPTY: Fields = {
   firstName: "", lastName: "", phone: "", email: "", message: "",
 };
 
-function ConfirmModal({ name, onClose }: { name: string; onClose: () => void }) {
+function ConfirmModal({
+  name, recap, onClose, onGoHome,
+}: {
+  name: string;
+  recap: { label: string; value: string }[];
+  onClose: () => void;
+  onGoHome: () => void;
+}) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm px-5">
-      <div className="relative bg-noir-card border border-gold/30 overflow-hidden w-full max-w-md">
+      <div className="relative bg-noir-card border border-gold/30 overflow-hidden w-full max-w-md max-h-[90vh] overflow-y-auto">
 
         {/* Lueur dorée */}
         <div className="absolute inset-0 pointer-events-none opacity-25" style={{
@@ -59,13 +67,30 @@ function ConfirmModal({ name, onClose }: { name: string; onClose: () => void }) 
           <div>
             <div className="text-[10px] uppercase tracking-[0.4em] text-gold mb-2">Confirmation</div>
             <h2 className="font-serif text-2xl text-white mb-3">
-              {name ? `Merci ${name},` : "Demande envoyée !"}
+              {name ? `Merci  Mr/Mm ${name},` : "Demande envoyée !"}
             </h2>
             <p className="text-sm text-neutral-400 leading-relaxed">
-              Votre demande de devis a bien été transmise.<br />
-              Vous recevrez une réponse personnalisée <strong className="text-white">dans les 2 heures</strong>.
+              Votre demande de devis a bien été transmise. Notre équipe va l'étudier et<br />
+              vous répondra personnellement <strong className="text-white">dans les 12 heures</strong>.
             </p>
           </div>
+
+          <div className="gold-divider w-full" />
+
+          {/* Récapitulatif */}
+          {recap.length > 0 && (
+            <div className="w-full text-left">
+              <div className="text-[10px] uppercase tracking-[0.3em] text-gold mb-3 text-center">Récapitulatif de votre demande</div>
+              <div className="border border-neutral-800 divide-y divide-neutral-800">
+                {recap.map((r) => (
+                  <div key={r.label} className="flex justify-between gap-4 px-3 md:px-4 py-2.5 text-xs">
+                    <span className="text-neutral-500 uppercase tracking-[0.1em] shrink-0">{r.label}</span>
+                    <span className="text-white text-right">{r.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="gold-divider w-full" />
 
@@ -77,12 +102,20 @@ function ConfirmModal({ name, onClose }: { name: string; onClose: () => void }) 
             </a>
           </div>
 
-          <button
-            onClick={onClose}
-            className="btn-gold w-full py-3.5 text-xs uppercase tracking-[0.2em] mt-2"
-          >
-            Fermer
-          </button>
+          <div className="w-full space-y-3 mt-2">
+            <button
+              onClick={onGoHome}
+              className="btn-gold w-full py-3.5 text-xs uppercase tracking-[0.2em]"
+            >
+              Retour à l'accueil
+            </button>
+            <button
+              onClick={onClose}
+              className="btn-outline-gold w-full py-3.5 text-xs uppercase tracking-[0.2em]"
+            >
+              Fermer
+            </button>
+          </div>
 
         </div>
       </div>
@@ -92,7 +125,7 @@ function ConfirmModal({ name, onClose }: { name: string; onClose: () => void }) 
 
 const todayISO = new Date().toISOString().slice(0, 10);
 
-export function DevisPage() {
+export function DevisPage({ onNav }: { onNav: (p: Page) => void }) {
   const [trajet, setTrajet]     = useState(0);
   const [fields, setFields]     = useState<Fields>(EMPTY);
   const [hasChildren, setHasChildren] = useState(false);
@@ -101,6 +134,7 @@ export function DevisPage() {
   const [loading, setLoading]   = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [sentName, setSentName]   = useState("");
+  const [recap, setRecap]         = useState<{ label: string; value: string }[]>([]);
 
   const set = (k: keyof Fields) =>
     (e: { target: { value: string } }) =>
@@ -142,6 +176,23 @@ export function DevisPage() {
         PUBLIC_KEY,
       );
       setSentName(fields.firstName);
+      setRecap(
+        [
+          { label: "Prise en charge", value: fields.pickup },
+          { label: "Destination", value: fields.destination },
+          fields.date ? { label: "Date", value: fields.date } : null,
+          fields.time ? { label: "Heure", value: fields.time } : null,
+          fields.passengers ? { label: "Passagers", value: fields.passengers } : null,
+          fields.luggage ? { label: "Bagages", value: fields.luggage } : null,
+          { label: "Type de trajet", value: trajet === 0 ? "Trajet simple" : "Aller-retour" },
+          fields.duration ? { label: "Mise à disposition", value: fields.duration } : null,
+          hasChildren ? { label: "Enfants à bord", value: fields.childrenAges || "Oui" } : null,
+          hasPets ? { label: "Animaux", value: petSizes.length ? petSizes.join(", ") : "Oui" } : null,
+          fields.specialRequest ? { label: "Demande particulière", value: fields.specialRequest } : null,
+          { label: "Téléphone", value: fields.phone },
+          fields.email ? { label: "Email", value: fields.email } : null,
+        ].filter((r): r is { label: string; value: string } => r !== null),
+      );
       setFields(EMPTY);
       setTrajet(0);
       setHasChildren(false);
@@ -375,7 +426,14 @@ export function DevisPage() {
         </form>
       </section>
 
-      {confirmed && <ConfirmModal name={sentName} onClose={() => setConfirmed(false)} />}
+      {confirmed && (
+        <ConfirmModal
+          name={sentName}
+          recap={recap}
+          onClose={() => setConfirmed(false)}
+          onGoHome={() => { setConfirmed(false); onNav("home"); }}
+        />
+      )}
     </main>
   );
 }

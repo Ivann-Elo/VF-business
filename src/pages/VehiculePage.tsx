@@ -23,7 +23,11 @@ export function VehiculePage({ onNav }: { onNav: (p: Page) => void }) {
   return (
     <main className="bg-noir">
       <Breadcrumb items={["Accueil", "Véhicule"]} />
-      <SecondaryHero title="BYD Seal U" subtitle="Le véhicule premium pensé pour le voyage confortable, courte et longue distance" />
+      <SecondaryHero
+        image="/images/coteAzurByNight.jpg"
+        title="BYD Seal U"
+        subtitle="Le véhicule premium pensé pour le voyage confortable, courte et longue distance"
+      />
 
       {/* Galerie */}
       <section className="px-4 md:px-10 py-16">

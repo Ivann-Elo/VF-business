@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Toaster } from "sonner";
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
 import { HomePage } from "./pages/HomePage";
@@ -24,7 +25,7 @@ export default function App() {
       case "home":              return <HomePage onNav={handleNav} />;
       case "services":          return <ServicesPage onNav={handleNav} />;
       case "vehicule":          return <VehiculePage onNav={handleNav} />;
-      case "devis":             return <DevisPage />;
+      case "devis":             return <DevisPage onNav={handleNav} />;
       case "about":             return <AboutPage onNav={handleNav} />;
       case "mentions-legales":  return <MentionsLegalesPage />;
       case "confidentialite":   return <ConfidentialitePage />;
@@ -33,6 +34,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen w-full bg-noir flex flex-col">
+      <Toaster theme="dark" position="top-center" richColors />
       <Header current={page} onNav={handleNav} />
       {renderPage()}
       <Footer onNav={handleNav} />

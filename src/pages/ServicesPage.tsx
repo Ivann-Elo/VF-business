@@ -22,7 +22,11 @@ export function ServicesPage({ onNav }: { onNav: (p: Page) => void }) {
   return (
     <main className="bg-noir">
       <Breadcrumb items={["Accueil", "Services"]} />
-      <SecondaryHero title="Nos services" subtitle="Des prestations d'exception pour répondre à toutes vos exigences de mobilité" />
+      <SecondaryHero
+        image="/images/coteAzurByNight.jpg"
+        title="Nos services"
+        subtitle="Des prestations d'exception pour répondre à toutes vos exigences de mobilité"
+      />
       <section className="px-4 md:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (

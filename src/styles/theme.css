@@ -118,10 +118,10 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Brand colors — required for Tailwind opacity modifiers (border-gold/20, bg-noir/95, etc.) */
-  --color-gold: #c9a961;
-  --color-gold-light: #e4c97a;
-  --color-gold-dark: #a8893f;
+  /* Brand colors — elegant metallic gold, required for Tailwind opacity modifiers (border-gold/20, bg-noir/95, etc.) */
+  --color-gold: #d4af37;
+  --color-gold-light: #f1d98b;
+  --color-gold-dark: #9c7a29;
   --color-noir: #0a0a0a;
   --color-noir-soft: #1a1a1a;
   --color-noir-card: #141414;

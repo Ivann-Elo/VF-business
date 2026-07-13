@@ -20,7 +20,11 @@ export function AboutPage({ onNav }: { onNav: (p: Page) => void }) {
   return (
     <main className="bg-noir">
       <Breadcrumb items={["Accueil", "À propos"]} />
-      <SecondaryHero title="À propos de VF Business" subtitle="Une exigence — faire de chaque trajet une expérience inoubliable" />
+      <SecondaryHero
+        image="/images/coteAzurByNight.jpg"
+        title="À propos de VF Business"
+        subtitle="Une exigence — faire de chaque trajet une expérience inoubliable"
+      />
 
       {/* Histoire */}
       <section className="px-4 md:px-10 py-16">
