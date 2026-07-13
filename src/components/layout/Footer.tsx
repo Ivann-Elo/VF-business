@@ -9,8 +9,8 @@ export function Footer({ onNav }: { onNav: (p: Page) => void }) {
 
         {/* Logo */}
         <div className="flex flex-col items-center gap-2">
-        <div className="w-10 h-10 flex items-center justify-center">
-            <span className="font-serif text-gold text-base">NOUVEAU LOGO</span>
+        <div className="h-10 flex items-center justify-center">
+            <img src="/images/LogoVFbusinesS.png" alt="VF Business" className="h-full w-auto object-contain" />
           </div>
         </div>
 
@@ -58,8 +58,8 @@ export function Footer({ onNav }: { onNav: (p: Page) => void }) {
 
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 flex items-center justify-center">
-              <span className="font-serif text-gold text-base">NOUVEAU LOGO</span>
+              <div className="h-10 flex items-center justify-center">
+              <img src="/images/LogoVFbusinesS.png" alt="VF Business" className="h-full w-auto object-contain" />
             </div>
             </div>
             <p className="text-xs text-neutral-500 leading-relaxed">

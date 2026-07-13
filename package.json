@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "deploy": "vite build && rsync -avz --delete dist/ su22037@access-5020874879.webspace-host.com:/home/www/public/"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

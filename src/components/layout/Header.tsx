@@ -19,8 +19,8 @@ export function Header({
     <header className="sticky top-0 z-20 bg-noir/95 backdrop-blur-md border-b border-gold/20">
       <div className="flex items-center justify-between px-4 md:px-10 py-4">
         <button onClick={() => onNav("home")} className="flex items-center gap-3">
-          <div className="w-10 h-10 flex items-center justify-center">
-            <span className="font-serif text-gold text-base">NOUVEAU LOGO</span>
+          <div className="h-10 flex items-center justify-center">
+            <img src="/images/LogoVFbusinesS.png" alt="VF Business" className="h-full w-auto object-contain" />
           </div>
         </button>
 

@@ -159,6 +159,7 @@ export function DevisPage() {
     <main className="bg-noir">
       <Breadcrumb items={["Accueil", "Demande de devis"]} />
       <SecondaryHero
+        logo
         title="Demandez votre devis"
         subtitle="Réponse personnalisée en moins de 12 heures · Sans engagement"
       />
