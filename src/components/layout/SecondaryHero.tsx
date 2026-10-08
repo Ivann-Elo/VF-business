@@ -12,13 +12,6 @@ export function SecondaryHero({ title, subtitle, logo, image }: { title: string;
         backgroundImage: "radial-gradient(ellipse at center top, rgba(201,169,97,0.25) 0%, transparent 60%)"
       }} />
       <div className="relative">
-        {logo && (
-          <img
-            src="/images/LogoVFbusinesS.png"
-            alt="VF Business"
-            className="h-20 md:h-28 w-auto object-contain mx-auto mb-8"
-          />
-        )}
         <div className="gold-divider w-24 mx-auto mb-6" />
         <h1 className="font-serif text-3xl md:text-5xl text-white mb-4 tracking-wide">{title}</h1>
         {subtitle && <p className={`text-sm md:text-base max-w-2xl mx-auto ${image ? "text-neutral-200" : "text-neutral-400"}`}>{subtitle}</p>}

@@ -71,7 +71,7 @@ function ConfirmModal({
             </h2>
             <p className="text-sm text-neutral-400 leading-relaxed">
               Votre demande de devis a bien été transmise. Notre équipe va l'étudier et<br />
-              vous répondra personnellement <strong className="text-white">dans les 12 heures</strong>.
+              vous répondra personnellement <strong className="text-white">dans les 24 heures</strong>.
             </p>
           </div>
 
@@ -212,7 +212,8 @@ export function DevisPage({ onNav }: { onNav: (p: Page) => void }) {
       <SecondaryHero
         logo
         title="Demandez votre devis"
-        subtitle="Réponse personnalisée en moins de 12 heures · Sans engagement"
+        subtitle="Réponse personnalisée en moins de 24 heures · Sans engagement"
+        image="/images/coteAzurByNight.jpg"
       />
 
       <section className="px-4 md:px-10 py-16">

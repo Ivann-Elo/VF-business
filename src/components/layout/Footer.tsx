@@ -80,7 +80,7 @@ export function Footer({ onNav }: { onNav: (p: Page) => void }) {
             <div className="text-gold text-[11px] uppercase tracking-[0.25em] mb-4">Services</div>
             <ul className="space-y-3 text-xs">
               {["Transferts aéroports", "Mise à disposition", "Événements & soirées", "Transport pro"].map((s) => (
-                <li key={s}><span className="hover:text-gold transition-colors cursor-pointer">{s}</span></li>
+                <li key={s}><button onClick={() => onNav("services")} className="hover:text-gold transition-colors">{s}</button></li>
               ))}
             </ul>
           </div>
@@ -90,7 +90,7 @@ export function Footer({ onNav }: { onNav: (p: Page) => void }) {
             <ul className="space-y-3 text-xs">
               <li><a href="tel:+33766393975" className="hover:text-gold transition-colors">+33 7 66 39 39 75</a></li>
               <li><a href="mailto:contact@vtc-vfbusiness.fr" className="hover:text-gold transition-colors">contact@vtc-vfbusiness.fr</a></li>
-              <li><span className="hover:text-gold transition-colors cursor-pointer">WhatsApp 24h/7j</span></li>
+              <li><a href="https://wa.me/33766393975" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors">WhatsApp 24h/7j</a></li>
             </ul>
           </div>
 

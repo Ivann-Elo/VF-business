@@ -19,7 +19,7 @@ const services = [
   { icon: "☾", t: "Soirées & événements", d: "Service nocturne sécurisé pour vos galas et soirées privées." },
 ];
 
-const equip = [ "Eau fraîche & Snack", "Ports USB", "Climatisation tri-zone", "Vitres teintées"];
+const equip = [ "Eau fraîche & Snack", "Ports USB", "Climatisation bi-zones", "Vitres teintées","Toit panoramique"];
 
 
 const why = [
@@ -43,7 +43,7 @@ export function HomePage({ onNav }: { onNav: (p: Page) => void }) {
           <div className="absolute right-0 bottom-0 w-full md:w-2/3 h-2/3 opacity-20" style={{
             backgroundImage: "radial-gradient(ellipse at center, rgba(201,169,97,0.4) 0%, transparent 60%)"
           }} />
-          <div className="absolute inset-0 flex items-center px-5 md:px-16">
+          <div className="absolute inset-0 flex items-center px-4 md:px-10">
             <div className="max-w-2xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-px bg-gold" />

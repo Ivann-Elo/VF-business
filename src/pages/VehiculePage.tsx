@@ -10,13 +10,14 @@ const equip = [
   { i: "❄", l: "Climatisation" },
   { i: "✦", l: "Propreté irréprochable" },
   { i: "▮", l: "Vitres teintées" },
+  { i: "🌌", l: "Toit panoramique" },
 ];
 
 const specs = [
   ["Marque / Modèle", "BYD Seal U"],
   ["Places passagers", "Jusqu'à 4"],
   ["Bagages", "4 valises moyennes"],
-  ["Classe", "Premium / VIP"],
+  ["Classe", "Berline"],
 ];
 
 export function VehiculePage({ onNav }: { onNav: (p: Page) => void }) {

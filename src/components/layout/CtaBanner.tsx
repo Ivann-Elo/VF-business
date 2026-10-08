@@ -8,15 +8,19 @@ export function CtaBanner({ onCta }: { onCta: () => void }) {
         <div className="text-[11px] uppercase tracking-[0.4em] text-gold mb-4">Réservation</div>
         <h2 className="font-serif text-2xl md:text-4xl text-white mb-3">Prêt à réserver votre chauffeur ?</h2>
         <p className="text-sm text-neutral-400 mb-8">
-          Devis personnalisé en moins de 12 heures · Disponible 24h/24, 7j/7
+          Devis personnalisé en moins de 24 heures · Disponible 24h/24, 7j/7
         </p>
         <div className="flex flex-col md:flex-row gap-3 justify-center">
           <button onClick={onCta} className="btn-gold px-8 py-3.5 text-xs uppercase">
             Demander un devis
           </button>
-          <button className="btn-outline-gold px-8 py-3.5 text-xs uppercase">
-            Appeler maintenant
-          </button>
+        <button
+          type="button"
+          onClick={() => (window.location.href = 'tel:+33766393975')}
+          className="btn-outline-gold px-8 py-3.5 text-xs uppercase"
+        >
+          Appeler maintenant
+        </button>
         </div>
       </div>
     </section>
