@@ -9,6 +9,7 @@ import { DevisPage } from "./pages/DevisPage";
 import { AboutPage } from "./pages/AboutPage";
 import { MentionsLegalesPage } from "./pages/MentionsLegalesPage";
 import { ConfidentialitePage } from "./pages/ConfidentialitePage";
+import { CGVPage } from "./pages/CGVPage";
 import { CookieBanner } from "./components/layout/CookieBanner";
 import type { Page } from "./types";
 
@@ -29,6 +30,7 @@ export default function App() {
       case "about":             return <AboutPage onNav={handleNav} />;
       case "mentions-legales":  return <MentionsLegalesPage />;
       case "confidentialite":   return <ConfidentialitePage />;
+      case "cgv":               return <CGVPage />;
     }
   };
 

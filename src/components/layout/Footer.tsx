@@ -45,6 +45,9 @@ export function Footer({ onNav }: { onNav: (p: Page) => void }) {
           <button onClick={() => onNav("confidentialite")} className="text-neutral-600 hover:text-gold transition-colors">
             Confidentialité
           </button>
+          <button onClick={() => onNav("cgv")} className="text-neutral-600 hover:text-gold transition-colors">
+            CGV
+          </button>
         </div>
 
         <div className="gold-divider w-full" />
@@ -97,7 +100,7 @@ export function Footer({ onNav }: { onNav: (p: Page) => void }) {
           <div>
             <div className="text-gold text-[11px] uppercase tracking-[0.25em] mb-4">Légal</div>
             <ul className="space-y-3 text-xs">
-              {([["Mentions légales", "mentions-legales"], ["Confidentialité", "confidentialite"], ["Cookies", "confidentialite"]] as [string, Page][]).map(([label, id]) => (
+              {([["Mentions légales", "mentions-legales"], ["Confidentialité", "confidentialite"], ["CGV", "cgv"], ["Cookies", "confidentialite"]] as [string, Page][]).map(([label, id]) => (
                 <li key={label}><button onClick={() => onNav(id)} className="hover:text-gold transition-colors">{label}</button></li>
               ))}
             </ul>

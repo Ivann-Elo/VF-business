@@ -39,13 +39,16 @@ export function AboutPage({ onNav }: { onNav: (p: Page) => void }) {
               L'excellence <span className="gold-text-gradient italic">au service</span> de l'exigence
             </h2>
             <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
-              VF Business est né d'une conviction : les déplacements professionnels et privés méritent
-              un service réellement haut de gamme, sans compromis.
+              VF BUSINESS est né d'une conviction : les déplacements professionnels et privés méritent un service réellement haut de gamme, où <strong className="text-neutral-200">confort, discrétion et ponctualité</strong> ne laissent aucune place au compromis.
+            </p>
+            <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
+              Basés sur la <strong className="text-neutral-200">Côte d'Azur</strong>, nous accompagnons une clientèle exigeante, composée de <strong className="text-neutral-200">particuliers, de professionnels et de voyageurs internationaux</strong>, avec une attention constante portée à la qualité de chaque prestation.
+            </p>
+            <p className="text-sm text-neutral-400 mb-4 leading-relaxed">
+              La confiance de nombreux partenaires témoigne aujourd'hui de notre engagement. Nous sommes sollicités pour des <strong className="text-neutral-200">transferts privés, des déplacements de personnalités et de clients VIP</strong>, et nous intervenons également auprès de <strong className="text-neutral-200">compagnies d'assurance</strong> et de leurs partenaires dans le cadre de missions d'assistance et de prise en charge de leurs assurés.
             </p>
             <p className="text-sm text-neutral-400 mb-6 leading-relaxed">
-              Basés sur la Côte d'Azur, nous accompagnons clients d'affaires, hôteliers et particuliers
-              exigeants pour tous leurs trajets dans le sud de la France, avec la même attention au détail
-              et au confort, quel que soit le voyage.
+              Quelle que soit la nature du déplacement, notre philosophie reste la même : offrir à chaque passager une <strong className="text-neutral-200">expérience sereine, personnalisée et irréprochable</strong>.
             </p>
             <div className="gold-divider w-24 mb-6" />
             <button onClick={() => onNav("services")} className="btn-outline-gold px-6 py-3 text-xs uppercase">
