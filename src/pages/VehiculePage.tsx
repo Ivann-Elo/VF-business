@@ -31,12 +31,12 @@ export function VehiculePage({ onNav }: { onNav: (p: Page) => void }) {
 
       {/* Galerie */}
       <section className="px-4 md:px-10 py-16">
-        <W.Img src={W.images.vehiculeMain} className="w-full aspect-[16/9] mb-4" label="Vue principale" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <W.Img src={W.images.vehiculeMain} className="rounded-lg w-full aspect-[16/9] mb-4" label="Vue principale" />
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <W.Img src={W.images.vehiculeExt}    className="w-full aspect-[4/3]" label="Extérieur" />
           <W.Img src={W.images.vehiculeInt}    className="w-full aspect-[4/3]" label="Intérieur" />
           <W.Img src={W.images.vehiculeCabine} className="w-full aspect-[4/3]" label="Cabine" />
-        </div>
+        </div> */}
       </section>
 
       {/* Spécifications */}

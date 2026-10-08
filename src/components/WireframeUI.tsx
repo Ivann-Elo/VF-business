@@ -1,6 +1,6 @@
 export const W = {
   images: {
-    vehiculeMain:    "/images/black_1440.png",
+    vehiculeMain:    "/images/BYD_VF.png",
     vehiculeExt:     "/images/black_1440.png",
     vehiculeInt:     "/images/interieur1.jpg",
     vehiculeCabine:  "/images/section06_1440.webp",
